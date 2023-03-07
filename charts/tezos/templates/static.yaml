@@ -19,7 +19,8 @@ kind: Service
 metadata:
   name: {{ $key }}
   labels:
-    appType: octez-node
+#    appType: octez-node
+    app: {{ .Values.name }}-baker
 spec:
   ports:
     - port: 8732
@@ -32,6 +33,9 @@ spec:
   clusterIP: None
   selector:
     node_class: {{ $key }}
+    app: {{ .Values.name }}-baker
+    type: ClusterIP
+
 ---
 {{- end }}
 {{- if (include "tezos.shouldDeployTzktIndexer" .) }}
