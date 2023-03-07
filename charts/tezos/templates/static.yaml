@@ -20,7 +20,7 @@ metadata:
   name: {{ $key }}
   labels:
 #    appType: octez-node
-    app: {{ .Values.name }}-baker
+    app: octez-node
 spec:
   ports:
     - port: 8732
@@ -29,11 +29,12 @@ spec:
       name: p2p
     - port: 9932
       name: metrics
-  publishNotReadyAddresses: true
-  clusterIP: None
+#  publishNotReadyAddresses: true
+#  clusterIP: None
+  type: ClusterIP
   selector:
     node_class: {{ $key }}
-    app: {{ .Values.name }}-baker
+    app: octez-node
     type: ClusterIP
 
 ---
