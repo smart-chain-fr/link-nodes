@@ -20,7 +20,6 @@ metadata:
   name: {{ $key }}
   labels:
     appType: octez-node
-#    app: octez-node
 spec:
   ports:
     - port: 8732
@@ -31,10 +30,8 @@ spec:
       name: metrics
   publishNotReadyAddresses: true
   clusterIP: None
-#  type: ClusterIP
   selector:
     node_class: {{ $key }}
-#    app: octez-node
 
 ---
 {{- end }}
