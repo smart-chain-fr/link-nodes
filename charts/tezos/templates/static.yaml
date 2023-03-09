@@ -33,9 +33,8 @@ spec:
 #  clusterIP: None
   type: ClusterIP
   selector:
-    node_class: {{ $key }}
+#    node_class: {{ $key }}
     app: octez-node
-    type: ClusterIP
 
 ---
 {{- end }}

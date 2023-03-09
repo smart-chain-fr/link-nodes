@@ -258,6 +258,7 @@ services:
     selector:
 #      rpc_node: "true"
       appType : "octez-node"
+#      app : "octez-node"
 
 # Prometheus Operator is required in your cluster in order to enable
 # serviceMonitor below.
@@ -266,7 +267,7 @@ services:
 #     metrics_addr: [ ":9932" ]
 # to your config.
 serviceMonitor:
-  enabled: false
+  enabled: true #false
   labels:
     # release: my-monitoring-release
 
@@ -341,8 +342,8 @@ expected_proof_of_work: 26
 ##   "https://teztnets.xyz/mondaynet". It is helpful for running
 ##   testnets and shouldn't be needed in general.
 node_config_network:
-  chain_name: mainnet
-#  chain_name: limanet
+#  chain_name: mainnet
+  chain_name: limanet
   ## When joining a public network, a tezos node will by default
   ## connect to the boot-nodes of the selected chain. This may not
   ## always be desired. For example, you may want to run a mainnet
