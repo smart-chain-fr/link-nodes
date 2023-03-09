@@ -32,6 +32,7 @@ spec:
   clusterIP: None
   selector:
     node_class: {{ $key }}
+
 ---
 {{- end }}
 {{- if (include "tezos.shouldDeployTzktIndexer" .) }}
