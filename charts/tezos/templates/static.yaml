@@ -19,8 +19,8 @@ kind: Service
 metadata:
   name: {{ $key }}
   labels:
-#    appType: octez-node
-    app: octez-node
+    appType: octez-node
+#    app: octez-node
 spec:
   ports:
     - port: 8732
@@ -29,12 +29,12 @@ spec:
       name: p2p
     - port: 9932
       name: metrics
-#  publishNotReadyAddresses: true
-#  clusterIP: None
-  type: ClusterIP
+  publishNotReadyAddresses: true
+  clusterIP: None
+#  type: ClusterIP
   selector:
-#    node_class: {{ $key }}
-    app: octez-node
+    node_class: {{ $key }}
+#    app: octez-node
 
 ---
 {{- end }}
