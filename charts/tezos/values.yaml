@@ -244,7 +244,7 @@ nodes:
       - is_bootstrap_node: false
         config:
           shell:
-            history_mode: archive
+            history_mode: rolling
           metrics_addr: [ "0.0.0.0:9932" ]
 # End nodes
 
@@ -340,7 +340,7 @@ expected_proof_of_work: 26
 ##   testnets and shouldn't be needed in general.
 node_config_network:
 #  chain_name: mainnet
-  chain_name: ghostnet
+  chain_name: mumbainet
   ## When joining a public network, a tezos node will by default
   ## connect to the boot-nodes of the selected chain. This may not
   ## always be desired. For example, you may want to run a mainnet
