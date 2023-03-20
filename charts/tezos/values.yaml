@@ -305,7 +305,7 @@ prefer_tarballs: false
 # will be ignored for all artifact types.
 ## NOTE: `*_tarball_url` and `*_snapshot_url` are mutually exclusive
 ## and cannot both be specified at the same time.
-archive_tarball_url: https://mumbainet.xtz-shots.io/archive-tarball
+archive_tarball_url: https://mumbainet.xtz-shots.io/tezos-mumbainet-archive-tarball-98134.lz4
 full_snapshot_url: null
 full_tarball_url: null
 rolling_snapshot_url: https://mumbainet.xtz-shots.io/mumbainet/rolling
