@@ -236,6 +236,16 @@ nodes:
           shell:
             history_mode: archive
           metrics_addr: [ "0.0.0.0:9932" ]
+  rolling-node:
+    storage_size: 100Gi
+    runs:
+      - octez_node
+    instances:
+      - is_bootstrap_node: false
+        config:
+          shell:
+            history_mode: archive
+          metrics_addr: [ "0.0.0.0:9932" ]
 # End nodes
 
 ## Configuration for K8s Service resources. Configuring the labels selector of a
@@ -299,7 +309,7 @@ archive_tarball_url: https://ghostnet.xtz-shots.io/archive-tarball
 full_snapshot_url: null
 full_tarball_url: null
 rolling_snapshot_url: null
-rolling_tarball_url: null
+rolling_tarball_url: https://ghostnet.xtz-shots.io/rolling-tarball
 
 # List of peers for nodes to connect to. Gets set under config.json `p2p` field
 bootstrap_peers: []
@@ -329,7 +339,6 @@ expected_proof_of_work: 26
 ##   "https://teztnets.xyz/mondaynet". It is helpful for running
 ##   testnets and shouldn't be needed in general.
 node_config_network:
-#  chain_name: mainnet
   chain_name: ghostnet
   ## When joining a public network, a tezos node will by default
   ## connect to the boot-nodes of the selected chain. This may not
