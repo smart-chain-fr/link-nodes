@@ -308,8 +308,8 @@ prefer_tarballs: false
 archive_tarball_url: null
 full_snapshot_url: null
 full_tarball_url: null
-rolling_snapshot_url: https://mumbainet.xtz-shots.io
-rolling_tarball_url: null
+rolling_snapshot_url: null
+rolling_tarball_url: https://mumbainet.xtz-shots.io/rolling-tarball
 
 # List of peers for nodes to connect to. Gets set under config.json `p2p` field
 bootstrap_peers: []
