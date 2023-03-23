@@ -256,8 +256,8 @@ services:
   ## be forwarded to all nodes if no labels are specified.
   tezos_node_rpc:
     selector:
-      rpc_node: "true"
-      appType : "octez-node"
+#      rpc_node: "true"
+      appType : "octez-node" 
 
 # Prometheus Operator is required in your cluster in order to enable
 # serviceMonitor below.
@@ -542,7 +542,7 @@ link:
       enabled: true
       hosts:
         - ghostnet-link.smart-node.com
-      secretName: link-rpc
+      secretName: link-tls
     annotations:
       kubernetes.io/ingress.class: nginx
       cert-manager.io/cluster-issuer: letsencrypt-prod
