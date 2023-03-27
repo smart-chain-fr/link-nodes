@@ -8,7 +8,7 @@ is_invitation: false
 
 # Images not part of the tezos-k8s repo go here
 images:
-  octez: tezos/tezos:v16.0
+  octez: tezos/tezos:v16.1
 # Images that are part of the tezos-k8s repo go here with 'dev' tag
 tezos_k8s_images:
   utils: ghcr.io/oxheadalpha/tezos-k8s-utils:master
@@ -534,3 +534,38 @@ bcdIndexer:
   # For the pv for the optional postgres container
   storageClassName: ""
   storage: "300Gi"
+
+link:
+  ingressA:
+    enabled: true
+    host: mainnet-archive.smart-node.com
+    tls:
+      enabled: true
+      hosts:
+        - mainnet-archive.smart-node.com
+      secretName: link-archive-tls
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+      nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
+      nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+      nginx.ingress.kubernetes.io/client_max_body_size: 200m
+      nginx.ingress.kubernetes.io/client-body-buffer-size: 2M
+      nginx.ingress.kubernetes.io/proxy-body-size: 200m
+
+  ingressR:
+    enabled: true
+    host: mainnet-rolling.smart-node.com
+    tls:
+      enabled: true
+      hosts:
+        - mainnet-rolling.smart-node.com
+      secretName: link-rolling-tls
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+      nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
+      nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+      nginx.ingress.kubernetes.io/client_max_body_size: 200m
+      nginx.ingress.kubernetes.io/client-body-buffer-size: 2M
+      nginx.ingress.kubernetes.io/proxy-body-size: 200m
