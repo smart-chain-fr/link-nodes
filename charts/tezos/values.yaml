@@ -552,6 +552,9 @@ link:
       nginx.ingress.kubernetes.io/client_max_body_size: 200m
       nginx.ingress.kubernetes.io/client-body-buffer-size: 2M
       nginx.ingress.kubernetes.io/proxy-body-size: 200m
+      nginx.ingress.kubernetes.io/cors-allow-methods: PUT, GET, POST, OPTIONS, DELETE, PATCH
+      nginx.ingress.kubernetes.io/enable-cors: "true"
+      nginx.ingress.kubernetes.io/cors-allow-origin: "*"
 
   ingressR:
     enabled: true
@@ -569,3 +572,6 @@ link:
       nginx.ingress.kubernetes.io/client_max_body_size: 200m
       nginx.ingress.kubernetes.io/client-body-buffer-size: 2M
       nginx.ingress.kubernetes.io/proxy-body-size: 200m
+      nginx.ingress.kubernetes.io/cors-allow-methods: PUT, GET, POST, OPTIONS, DELETE, PATCH
+      nginx.ingress.kubernetes.io/enable-cors: "true"
+      nginx.ingress.kubernetes.io/cors-allow-origin: "*"
