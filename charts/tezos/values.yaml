@@ -538,11 +538,11 @@ bcdIndexer:
 link:
   ingressA:
     enabled: true
-    host: mainnet-archive.smart-node.com
+    host: mainnet-archive-link.smart-node.com
     tls:
       enabled: true
       hosts:
-        - mainnet-archive.smart-node.com
+        - mainnet-archive-link.smart-node.com
       secretName: link-archive-tls
     annotations:
       kubernetes.io/ingress.class: nginx
@@ -558,11 +558,11 @@ link:
 
   ingressR:
     enabled: true
-    host: mainnet-rolling.smart-node.com
+    host: mainnet-rolling-link.smart-node.com
     tls:
       enabled: true
       hosts:
-        - mainnet-rolling.smart-node.com
+        - mainnet-rolling-link.smart-node.com 
       secretName: link-rolling-tls
     annotations:
       kubernetes.io/ingress.class: nginx
