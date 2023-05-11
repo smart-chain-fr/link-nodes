@@ -30,6 +30,8 @@ spec:
       name: metrics
   publishNotReadyAddresses: true
   clusterIP: None
+#  type: LoadBalancer
+#  type: NodePort
   selector:
     node_class: {{ $key }}
 

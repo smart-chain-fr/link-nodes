@@ -237,7 +237,7 @@ nodes:
             history_mode: rolling
           metrics_addr: [ "0.0.0.0:9932" ]
   archive-node:
-    storage_size: 1000Gi
+    storage_size: 1500Gi
     runs:
       - octez_node
     instances:
