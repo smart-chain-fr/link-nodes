@@ -226,6 +226,16 @@ should_generate_unsafe_deterministic_data: false
 node_globals:
   env: {}
 nodes:
+  archive-node:
+    storage_size: 1000Gi
+    runs:
+      - octez_node
+    instances:
+      - is_bootstrap_node: false
+        config:
+          shell:
+            history_mode: archive
+          metrics_addr: [ "0.0.0.0:9932" ]
   rolling-node:
     storage_size: 100Gi
     runs:
@@ -235,16 +245,6 @@ nodes:
         config:
           shell:
             history_mode: rolling
-          metrics_addr: [ "0.0.0.0:9932" ]
-  archive-node:
-    storage_size: 1500Gi
-    runs:
-      - octez_node
-    instances:
-      - is_bootstrap_node: false
-        config:
-          shell:
-            history_mode: archive
           metrics_addr: [ "0.0.0.0:9932" ]
 # End nodes
 
@@ -257,8 +257,7 @@ services:
   tezos_node_rpc:
     selector:
 #      rpc_node: "true"
-      appType : "octez-node"
-#      app : "octez-node"
+      appType : "octez-node" 
 
 # Prometheus Operator is required in your cluster in order to enable
 # serviceMonitor below.
@@ -306,11 +305,11 @@ prefer_tarballs: false
 # will be ignored for all artifact types.
 ## NOTE: `*_tarball_url` and `*_snapshot_url` are mutually exclusive
 ## and cannot both be specified at the same time.
-archive_tarball_url: https://mainnet.xtz-shots.io/archive-tarball 
+archive_tarball_url: https://ghostnet.xtz-shots.io/archive-tarball
 full_snapshot_url: null
 full_tarball_url: null
-rolling_snapshot_url: https://mainnet.xtz-shots.io/rolling
-rolling_tarball_url: null
+rolling_snapshot_url: null
+rolling_tarball_url: https://ghostnet.xtz-shots.io/rolling-tarball
 
 # List of peers for nodes to connect to. Gets set under config.json `p2p` field
 bootstrap_peers: []
@@ -340,7 +339,7 @@ expected_proof_of_work: 26
 ##   "https://teztnets.xyz/mondaynet". It is helpful for running
 ##   testnets and shouldn't be needed in general.
 node_config_network:
-  chain_name: mainnet
+  chain_name: ghostnet
   ## When joining a public network, a tezos node will by default
   ## connect to the boot-nodes of the selected chain. This may not
   ## always be desired. For example, you may want to run a mainnet
@@ -362,8 +361,8 @@ protocols:
   ##   "on" and "off" must be between quotes.
   ## Note that we are not providing default votes since every baker needs
   ## to make an explicit educated choice on every toggle.
-  - command: PtMumbai2 
-    vote: {}
+  # - command: PtMumbai2
+  #   vote: {}
   # - command: alpha
   #   vote:
   #     liquidity_baking_toggle_vote: "pass"
@@ -538,35 +537,25 @@ bcdIndexer:
 link:
   ingressA:
     enabled: true
-    host: mainnet-archive.smart-node.com
+    host: mainnet-archive.tezoslink.net
     tls:
       enabled: true
       hosts:
-        - mainnet-archive.smart-node.com
+        - mainnet-archive.tezoslink.net
       secretName: link-archive-tls
     annotations:
-      kubernetes.io/ingress.class: nginx
-      cert-manager.io/cluster-issuer: letsencrypt-prod
-      nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
-      nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-      nginx.ingress.kubernetes.io/client_max_body_size: 200m
-      nginx.ingress.kubernetes.io/client-body-buffer-size: 2M
-      nginx.ingress.kubernetes.io/proxy-body-size: 200m
-      nginx.ingress.kubernetes.io/cors-allow-methods: PUT, GET, POST, OPTIONS, DELETE, PATCH
-      nginx.ingress.kubernetes.io/enable-cors: "true"
-      nginx.ingress.kubernetes.io/cors-allow-origin: "*"
+      kubernetes.io/ingress.class: gce
+      networking.gke.io/managed-certificates: tezoslinknet
 
   ingressR:
     enabled: true
-    host: mainnet-rolling.smart-node.com
+    host: mainnet-rolling.tezoslink.net
     tls:
       enabled: true
       hosts:
-        - mainnet-rolling.smart-node.com
+        - mainnet-rolling.tezoslink.net
       secretName: link-rolling-tls
     annotations:
-      kubernetes.io/ingress.class: nginx
-      cert-manager.io/cluster-issuer: letsencrypt-prod
       nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
       nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
       nginx.ingress.kubernetes.io/client_max_body_size: 200m
