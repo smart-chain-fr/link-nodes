@@ -537,11 +537,11 @@ bcdIndexer:
 link:
   ingressA:
     enabled: true
-    host: ghostnet-archive.smart-node.com
+    host: link-ghostnet-archive.smart-node.com
     tls:
       enabled: true
       hosts:
-        - ghostnet-archive.smart-node.com
+        - link-ghostnet-archive.smart-node.com
       secretName: link-archive-tls
     annotations:
       kubernetes.io/ingress.class: nginx
@@ -557,11 +557,11 @@ link:
 
   ingressR:
     enabled: true
-    host: ghostnet-rolling.smart-node.com
+    host: link-ghostnet-rolling.smart-node.com
     tls:
       enabled: true
       hosts:
-        - ghostnet-rolling.smart-node.com
+        - link-ghostnet-rolling.smart-node.com
       secretName: link-rolling-tls
     annotations:
       kubernetes.io/ingress.class: nginx
