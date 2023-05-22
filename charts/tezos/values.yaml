@@ -545,7 +545,7 @@ link:
       secretName: link-archive-tls
     annotations:
       kubernetes.io/ingress.class: gce
-      networking.gke.io/managed-certificates: tezoslinknet
+      networking.gke.io/managed-certificates: link-nodes-mc
 
   ingressR:
     enabled: true
@@ -556,11 +556,5 @@ link:
         - mainnet-rolling.tezoslink.net
       secretName: link-rolling-tls
     annotations:
-      nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
-      nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-      nginx.ingress.kubernetes.io/client_max_body_size: 200m
-      nginx.ingress.kubernetes.io/client-body-buffer-size: 2M
-      nginx.ingress.kubernetes.io/proxy-body-size: 200m
-      nginx.ingress.kubernetes.io/cors-allow-methods: PUT, GET, POST, OPTIONS, DELETE, PATCH
-      nginx.ingress.kubernetes.io/enable-cors: "true"
-      nginx.ingress.kubernetes.io/cors-allow-origin: "*"
+      kubernetes.io/ingress.class: gce
+      networking.gke.io/managed-certificates: link-nodes-mc
