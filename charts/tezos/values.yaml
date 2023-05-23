@@ -538,10 +538,6 @@ link:
   ingressA:
     enabled: true
     host: mainnet-archive.tezoslink.net
-    tls:
-      enabled: true
-      hosts:
-        - mainnet-archive.tezoslink.net
     annotations:
       kubernetes.io/ingress.class: gce
       networking.gke.io/managed-certificates: link-nodes-mc
@@ -551,11 +547,6 @@ link:
   ingressR:
     enabled: true
     host: mainnet-rolling.tezoslink.net
-    tls:
-      enabled: true
-      hosts:
-        - mainnet-rolling.tezoslink.net
-      secretName: link-rolling-tls
     annotations:
       kubernetes.io/ingress.class: gce
       networking.gke.io/managed-certificates: link-nodes-mc
