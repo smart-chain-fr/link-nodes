@@ -3,7 +3,6 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: link-rolling
-  namespace: link-mainnet
 {{if .Values.link.ingressR.annotations}}
   annotations: 
 {{toYaml .Values.link.ingressR.annotations | indent 4 }}
@@ -18,10 +17,10 @@ spec:
   - host: {{ .Values.link.ingressR.host }}
     http:
       paths:
-      - path: /
-        pathType: Prefix
-        backend:
+      - backend:
           service:
-            name: rolling-node #tezos-node-rpc
+            name: rolling-node-svc #tezos-node-rpc
             port:
               number: 8732
+        path: /
+        pathType: ImplementationSpecific #Prefix

@@ -542,10 +542,11 @@ link:
       enabled: true
       hosts:
         - mainnet-archive.tezoslink.net
-      secretName: link-archive-tls
     annotations:
       kubernetes.io/ingress.class: gce
       networking.gke.io/managed-certificates: link-nodes-mc
+      kubernetes.io/ingress.allow-http: "true"
+      kubernetes.io/ingress.global-static-ip-name: 35.244.238.113
 
   ingressR:
     enabled: true
@@ -558,3 +559,5 @@ link:
     annotations:
       kubernetes.io/ingress.class: gce
       networking.gke.io/managed-certificates: link-nodes-mc
+      kubernetes.io/ingress.allow-http: "true"
+      kubernetes.io/ingress.global-static-ip-name: 35.244.238.113

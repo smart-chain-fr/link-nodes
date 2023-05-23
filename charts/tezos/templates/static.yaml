@@ -17,7 +17,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ $key }}
+  name: {{ $key }}-svc
   labels:
     appType: octez-node
 spec:
@@ -28,10 +28,10 @@ spec:
       name: p2p
     - port: 9932
       name: metrics
-  publishNotReadyAddresses: true
-  clusterIP: None
+#  publishNotReadyAddresses: true
+#  clusterIP: None
 #  type: LoadBalancer
-#  type: NodePort
+  type: NodePort
   selector:
     node_class: {{ $key }}
 

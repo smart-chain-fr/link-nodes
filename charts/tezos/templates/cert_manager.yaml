@@ -4,5 +4,5 @@ metadata:
   name: link-nodes-mc
 spec:
   domains:
-    - mainnet-archive.tezoslink.net
-    - mainnet-rolling.tezoslink.net
+  - mainnet-archive.tezoslink.net
+  - mainnet-rolling.tezoslink.net
