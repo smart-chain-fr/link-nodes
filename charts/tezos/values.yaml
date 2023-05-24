@@ -533,22 +533,3 @@ bcdIndexer:
   # For the pv for the optional postgres container
   storageClassName: ""
   storage: "300Gi"
-
-link:
-  ingressA:
-    enabled: true
-    host: mainnet-archive.tezoslink.net
-    annotations:
-      kubernetes.io/ingress.class: gce
-      networking.gke.io/managed-certificates: link-nodes-mc
-      kubernetes.io/ingress.allow-http: "true"
-      kubernetes.io/ingress.global-static-ip-name: 35.244.238.113
-
-  ingressR:
-    enabled: true
-    host: mainnet-rolling.tezoslink.net
-    annotations:
-      kubernetes.io/ingress.class: gce
-      networking.gke.io/managed-certificates: link-nodes-mc
-      kubernetes.io/ingress.allow-http: "true"
-      kubernetes.io/ingress.global-static-ip-name: 35.244.238.113

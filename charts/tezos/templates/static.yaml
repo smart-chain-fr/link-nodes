@@ -17,7 +17,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ $key }}-svc
+  name: {{ $key }}
   labels:
     appType: octez-node
 spec:
@@ -30,10 +30,10 @@ spec:
       name: metrics
 #  publishNotReadyAddresses: true
 #  clusterIP: None
-#  type: LoadBalancer
-  type: NodePort
+  type: ClusterIP
   selector:
-    node_class: {{ $key }}
+    appType: octez-node
+#    node_class: {{ $key }}
 
 ---
 {{- end }}

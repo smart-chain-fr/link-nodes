@@ -1,0 +1,29 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: awesome-ingress
+spec:
+  defaultBackend:
+    service:
+      name: archive-node
+      port:
+        number: 8732
+  rules:
+  - http:
+      paths:
+      - path: /rolling
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: rolling-node
+            port:
+              number: 8732
+  - http:
+      paths:
+      - path: /archive
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: archive-node
+            port:
+              number: 8732
