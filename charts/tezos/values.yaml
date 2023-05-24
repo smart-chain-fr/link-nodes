@@ -536,15 +536,3 @@ bcdIndexer:
 
 
 
-link:
-  ingressA:
-    enabled: true
-    host: ghostnet-archive.tezoslink.net
-    tls:
-      enabled: true
-      hosts:
-        - ghostnet-archive.tezoslink.net
-      secretName: link-archive-tls
-    annotations: 
-      kubernetes.io/ingress.class: gce,
-      networking.gke.io/managed-certificates: link-nodes-mc
