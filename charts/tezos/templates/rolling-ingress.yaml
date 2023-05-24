@@ -8,7 +8,6 @@ metadata:
 {{toYaml .Values.link.ingressR.annotations | indent 4 }}
 {{end}}
 spec:
-  {{if .Values.link.ingressR.tls.enabled }}
   rules:
   - host: {{ .Values.link.ingressR.host }}
     http:
