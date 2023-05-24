@@ -24,14 +24,17 @@ spec:
   ports:
     - port: 8732
       name: rpc
+      targetPort: 8732
     - port: 9732
       name: p2p
     - port: 9932
       name: metrics
   publishNotReadyAddresses: true
-  clusterIP: None
+#  clusterIP: None
+  type: ClusterIP
   selector:
-    node_class: {{ $key }}
+    appType: octez-node
+#    node_class: {{ $key }}
 
 ---
 {{- end }}
