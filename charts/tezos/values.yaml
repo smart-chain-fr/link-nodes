@@ -259,6 +259,7 @@ services:
 #      rpc_node: "true"
       appType : "octez-node" 
 
+
 # Prometheus Operator is required in your cluster in order to enable
 # serviceMonitor below.
 # ServiceMonitor allows you to scrape the prometheus endpoints of your tezos nodes.

@@ -24,7 +24,6 @@ spec:
   ports:
     - port: 8732
       name: rpc
-      targetPort: 8732
     - port: 9732
       name: p2p
     - port: 9932
@@ -33,8 +32,8 @@ spec:
 #  clusterIP: None
   type: ClusterIP
   selector:
-    appType: octez-node
-#    node_class: {{ $key }}
+    node_class: {{ $key }}
+
 
 ---
 {{- end }}

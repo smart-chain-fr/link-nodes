@@ -21,7 +21,6 @@ spec:
   template:
     metadata:
       labels:
-        appType: octez-node
         node_class: {{ $.node_class }}
       {{- if has "baker" $.node_vals.runs }}
         baking_node: "true"
