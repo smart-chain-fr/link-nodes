@@ -1,10 +1,10 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: awesome-ingress
+  name: ghostnet-ingress
   annotations:
     kubernetes.io/ingress.class: gce
-    networking.gke.io/managed-certificates: tezoslinknodes
+    networking.gke.io/managed-certificates: tezoslinknodes-ghostnet
 spec:
   rules:
   - host: ghostnet-archive.tezoslink.net
