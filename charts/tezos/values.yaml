@@ -339,7 +339,7 @@ expected_proof_of_work: 26
 ##   "https://teztnets.xyz/mondaynet". It is helpful for running
 ##   testnets and shouldn't be needed in general.
 node_config_network:
-  chain_name: ghostnet
+  chain_name: mainnet
   ## When joining a public network, a tezos node will by default
   ## connect to the boot-nodes of the selected chain. This may not
   ## always be desired. For example, you may want to run a mainnet

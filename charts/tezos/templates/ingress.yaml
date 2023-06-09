@@ -5,6 +5,9 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: gce
     networking.gke.io/managed-certificates: tezoslinknodes-mainnet
+    ingress.kubernetes.io/cors-headers: "Origin, X-Requested-With, Content-Type, Accept, Range, GET, POST"
+    ingress.kubernetes.io/enable-cors: "true"
+    ingress.kubernetes.io/cors-origin: "*"
 spec:
   rules:
   - host: mainnet-archive.tezoslink.net
