@@ -4,6 +4,7 @@ metadata:
   name: awesome-ingress
   annotations:
     kubernetes.io/ingress.class: gce
+    networking.gke.io/managed-certificates: tezoslinknodes
 spec:
   rules:
   - host: mainnet-archive.tezoslink.net
@@ -14,5 +15,15 @@ spec:
         backend:
           service:
             name: archive-node
+            port:
+              number: 8732
+  - host: mainnet-rolling.tezoslink.net
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: rolling-node
             port:
               number: 8732
