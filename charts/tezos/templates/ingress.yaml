@@ -5,23 +5,12 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: gce
 spec:
-#   defaultBackend:
-#     service:
-#       name: archive-node
-#       port:
-#         number: 8732
   rules:
-  - http:
+  - host: mainnet-archive.tezoslink.net
+    http:
       paths:
-      - path: /rolling
-        pathType: ImplementationSpecific
-        backend:
-          service:
-            name: rolling-node
-            port:
-              number: 8732
-      - path: /archive
-        pathType: ImplementationSpecific
+      - path: /
+        pathType: Prefix
         backend:
           service:
             name: archive-node

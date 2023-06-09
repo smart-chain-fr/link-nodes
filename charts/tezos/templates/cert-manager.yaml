@@ -1,0 +1,9 @@
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  name: tezoslinknodes
+  namespace: mainnet
+spec:
+  domains:
+  - mainnet-archive.tezoslink.net
+  - mainnet-rolling.tezoslink.net
