@@ -227,7 +227,7 @@ node_globals:
   env: {}
 nodes:
   archive-node:
-    storage_size: 1000Gi
+    storage_size: 1500Gi
     runs:
       - octez_node
     instances:
